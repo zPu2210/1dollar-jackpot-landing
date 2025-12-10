@@ -52,6 +52,8 @@ Gold:        #FBBF24 (winner highlights)
 | 03 | Conversion Sections | High | Pending | ~150 |
 | 04 | Trust & Social Proof | Medium | Pending | ~130 |
 | 05 | Footer & Polish | Medium | Pending | ~100 |
+| 06 | Hero Mascot Optimization | High | Implemented | ~20 |
+| 07 | Mascot Positioning Fix | Critical | Pending | ~4 |
 
 ## Progress Tracking
 
@@ -60,6 +62,8 @@ Gold:        #FBBF24 (winner highlights)
 - [ ] Phase 03: Conversion Sections (zero-friction, humor feature)
 - [ ] Phase 04: Trust & Social Proof (blockchain, winners animation)
 - [ ] Phase 05: Footer & Polish (compliance, links, accessibility audit)
+- [x] Phase 06: Hero Mascot Optimization (positioning, above-fold visibility)
+- [ ] Phase 07: Mascot Positioning Fix (visual feedback revision)
 
 ## Technical Stack
 
@@ -98,6 +102,8 @@ Gold:        #FBBF24 (winner highlights)
 - [Phase 03: Conversion Sections](./phase-03-conversion-sections.md)
 - [Phase 04: Trust & Social Proof](./phase-04-trust-social-proof.md)
 - [Phase 05: Footer & Polish](./phase-05-footer-polish.md)
+- [Phase 06: Hero Mascot Optimization](./phase-06-hero-mascot-optimization.md)
+- [Phase 07: Mascot Positioning Fix](./phase-07-mascot-positioning-fix.md)
 
 ## Unresolved Questions
 
