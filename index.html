@@ -20,6 +20,9 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="$1 Jackpot | Web3 Gaming">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="1$ Jackpot logo.png">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -185,34 +188,45 @@
                 </p>
             </div>
 
-            <!-- YouTube Video -->
-            <div class="relative z-10 w-full max-w-3xl mx-auto mb-8">
-                <div class="glass rounded-2xl p-2 md:p-3">
-                    <div class="relative w-full pt-[56.25%]"> <!-- 16:9 Aspect Ratio -->
-                        <iframe class="absolute inset-0 w-full h-full rounded-xl"
-                            src="https://www.youtube.com/embed/OWKZ3EDD_gw?si=o7D8fF9enJJP9Q_F"
-                            title="$1 Jackpot - How It Works" frameborder="0"
+            <!-- YouTube Carousel -->
+            <div class="relative z-10 w-full max-w-4xl mx-auto mb-16">
+                <div class="glass rounded-2xl p-2 md:p-3 relative group">
+                    <!-- Video Container -->
+                    <div class="relative w-full pt-[56.25%] overflow-hidden rounded-xl bg-black">
+                        <iframe id="carousel-iframe" class="absolute inset-0 w-full h-full"
+                            src="https://www.youtube.com/embed/OWKZ3EDD_gw?enablejsapi=1&rel=0" title="$1 Jackpot Video"
+                            frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                            allowfullscreen></iframe>
                     </div>
-                </div>
-            </div>
 
-            <!-- Demo Video Placeholder -->
-            <div class="relative z-10 w-full max-w-2xl mx-auto mb-10">
-                <div class="glass rounded-2xl p-4 md:p-6">
-                    <div class="relative w-full pt-[56.25%] bg-dark-card rounded-xl overflow-hidden">
-                        <!-- Placeholder content -->
-                        <div class="absolute inset-0 flex flex-col items-center justify-center">
-                            <svg class="w-16 h-16 text-slate-500 mb-4" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <p class="text-slate-400 text-sm font-medium">Demo Video Coming Soon</p>
-                        </div>
+                    <!-- Carousel Controls -->
+                    <button onclick="prevSlide()"
+                        class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-primary/80 text-white p-3 rounded-full backdrop-blur-sm transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary z-20"
+                        aria-label="Previous video">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+
+                    <button onclick="nextSlide()"
+                        class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-primary/80 text-white p-3 rounded-full backdrop-blur-sm transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary z-20"
+                        aria-label="Next video">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+
+                    <!-- Indicators -->
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                        <button onclick="goToSlide(0)" class="carousel-dot w-3 h-3 rounded-full bg-white transition-all"
+                            aria-label="Go to slide 1"></button>
+                        <button onclick="goToSlide(1)"
+                            class="carousel-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white transition-all"
+                            aria-label="Go to slide 2"></button>
+                        <button onclick="goToSlide(2)"
+                            class="carousel-dot w-3 h-3 rounded-full bg-white/40 hover:bg-white transition-all"
+                            aria-label="Go to slide 3"></button>
                     </div>
                 </div>
             </div>
@@ -373,9 +387,15 @@
                     </div>
 
                     <!-- Stat 2: Daily Limit -->
-                    <div class="glass rounded-2xl p-6">
-                        <div class="text-4xl md:text-5xl font-bold font-display text-secondary mb-2">$3</div>
-                        <div class="text-slate-400 text-sm">Daily Limit</div>
+                    <div class="glass rounded-2xl p-6 relative overflow-hidden group">
+                        <!-- Humor Image Background (Low Opacity) -->
+                        <div class="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity">
+                            <img src="images/humor_rabbit.png" alt="" class="w-full h-full object-cover">
+                        </div>
+                        <div class="relative z-10">
+                            <div class="text-4xl md:text-5xl font-bold font-display text-secondary mb-2">$3</div>
+                            <div class="text-slate-400 text-sm">Daily Limit</div>
+                        </div>
                     </div>
 
                     <!-- Stat 3: Spins -->
@@ -422,7 +442,14 @@
                 </div>
 
                 <!-- Trust Cards Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 relative z-10">
+                    <!-- Decorative Rabbit (Trust) -->
+                    <div
+                        class="absolute -top-16 -right-10 w-32 h-32 md:w-40 md:h-40 opacity-50 hidden md:block pointer-events-none">
+                        <img src="images/rabbit_trust.png" alt="" class="w-full h-full object-contain drop-shadow-2xl"
+                            style="mask-image: linear-gradient(to bottom, black, transparent);">
+                    </div>
+
                     <!-- Card 1: On-chain Transparency -->
                     <div class="glass rounded-2xl p-8 text-center group hover:bg-white/15 transition-all duration-300">
                         <!-- Icon -->
@@ -520,46 +547,44 @@
                         See It In Action
                     </h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <!-- Screenshot Placeholder 1 -->
-                        <div class="glass rounded-2xl p-3 group">
-                            <div class="relative w-full pt-[75%] bg-dark rounded-xl overflow-hidden">
-                                <div class="absolute inset-0 flex flex-col items-center justify-center">
-                                    <svg class="w-12 h-12 text-slate-600 mb-2" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                    </svg>
-                                    <p class="text-slate-500 text-sm">Game Interface</p>
-                                </div>
-                                <!-- Replace with: <img src="screenshot-1.png" alt="Game interface screenshot" class="absolute inset-0 w-full h-full object-cover"> -->
+                        <!-- Screenshot 1: Game UI -->
+                        <div class="glass rounded-2xl p-3 group relative overflow-hidden">
+                            <div class="relative w-full pt-[177%] bg-dark rounded-xl overflow-hidden">
+                                <img src="images/game_ui.png" alt="Game Interface"
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <p class="text-white text-sm font-semibold">Sleek Game UI</p>
                             </div>
                         </div>
 
-                        <!-- Screenshot Placeholder 2 -->
-                        <div class="glass rounded-2xl p-3 group">
-                            <div class="relative w-full pt-[75%] bg-dark rounded-xl overflow-hidden">
-                                <div class="absolute inset-0 flex flex-col items-center justify-center">
-                                    <svg class="w-12 h-12 text-slate-600 mb-2" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                    </svg>
-                                    <p class="text-slate-500 text-sm">Winning Moment</p>
-                                </div>
+                        <!-- Screenshot 2: Winner Showcase -->
+                        <div class="glass rounded-2xl p-3 group relative overflow-hidden">
+                            <div class="relative w-full pt-[177%] bg-dark rounded-xl overflow-hidden">
+                                <img src="images/winner_showcase.png" alt="Big Win Moment"
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <p class="text-white text-sm font-semibold">Real Winners</p>
                             </div>
                         </div>
 
-                        <!-- Screenshot Placeholder 3 -->
-                        <div class="glass rounded-2xl p-3 group sm:col-span-2 lg:col-span-1">
-                            <div class="relative w-full pt-[75%] bg-dark rounded-xl overflow-hidden">
-                                <div class="absolute inset-0 flex flex-col items-center justify-center">
-                                    <svg class="w-12 h-12 text-slate-600 mb-2" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                    </svg>
-                                    <p class="text-slate-500 text-sm">Telegram Integration</p>
+                        <!-- Screenshot 3: Mobile Experience -->
+                        <div class="glass rounded-2xl p-3 group sm:col-span-2 lg:col-span-1 relative overflow-hidden">
+                            <div class="relative w-full pt-[177%] bg-dark rounded-xl overflow-hidden">
+                                <img src="images/rabbit_feature.png" alt="Mobile Experience"
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                <!-- Overlay Decor -->
+                                <div class="absolute top-2 right-2 w-12 h-12 opacity-80">
+                                    <img src="images/rabbit_decor.png" alt=""
+                                        class="w-full h-full object-cover rounded-full border-2 border-white/20">
                                 </div>
+                            </div>
+                            <div
+                                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/80 to-transparent p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                                <p class="text-white text-sm font-semibold">Play Anywhere</p>
                             </div>
                         </div>
                     </div>
@@ -628,6 +653,47 @@
                         }
                     }, Math.random() * 7000 + 8000);
                 })();
+
+            // Carousel Logic
+            const videoIds = [
+                'OWKZ3EDD_gw', // Video 1
+                'OWKZ3EDD_gw', // Video 2 (Duplicate for demo)
+                'OWKZ3EDD_gw'  // Video 3 (Duplicate for demo)
+            ];
+            let currentSlide = 0;
+            const iframe = document.getElementById('carousel-iframe');
+            const dots = document.querySelectorAll('.carousel-dot');
+
+            function updateCarousel() {
+                // Update Video
+                iframe.src = `https://www.youtube.com/embed/${videoIds[currentSlide]}?enablejsapi=1&rel=0`;
+
+                // Update Dots
+                dots.forEach((dot, index) => {
+                    if (index === currentSlide) {
+                        dot.classList.remove('bg-white/40', 'hover:bg-white');
+                        dot.classList.add('bg-white');
+                    } else {
+                        dot.classList.add('bg-white/40', 'hover:bg-white');
+                        dot.classList.remove('bg-white');
+                    }
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % videoIds.length;
+                updateCarousel();
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + videoIds.length) % videoIds.length;
+                updateCarousel();
+            }
+
+            function goToSlide(index) {
+                currentSlide = index;
+                updateCarousel();
+            }
         </script>
 
     </main>
