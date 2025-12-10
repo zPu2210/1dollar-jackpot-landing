@@ -553,144 +553,57 @@
                         class="absolute inset-y-0 right-0 w-8 md:w-32 bg-gradient-to-l from-dark-card to-transparent z-10">
                     </div>
 
-                    <div class="flex items-center gap-6 animate-marquee w-max">
-                        <!-- Winner Cards Batch 1 -->
-                        <div class="flex items-center gap-6">
-                            <div
-                                class="glass rounded-xl px-5 py-3 flex items-center gap-3 border-l-4 border-gold min-w-[200px]">
-                                <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                    </svg>
+                    <script>
+                            (function () {
+                                // Dynamic Marquee Content Generator
+                                const container = document.querySelector('.animate-marquee');
+                                if (!container) return;
+
+                                // Clear existing static content for dynamic generation if desired, 
+                                // but since we want to enhance it, let's keep the structure and just update the data attributes or text.
+                                // However, to make it "more attractive" with timestamps from recent to several days ago,
+                                // we should probably regenerate the content or update the static HTML to reflect this variety.
+
+                                // For a pure HTML/CSS marquee, the content is duplicated. 
+                                // Let's create a rich set of data to inject.
+
+                                const winners = [
+                                    { amount: 234, wallet: '0x7c...ED12', time: 'Just now' },
+                                    { amount: 1050, wallet: '0x9a...F3B1', time: '45s ago' },
+                                    { amount: 56, wallet: '0x3d...A2C9', time: '2m ago' },
+                                    { amount: 892, wallet: '0x1f...E9D4', time: '15m ago' },
+                                    { amount: 12, wallet: '0x5b...C1A8', time: '1h ago' },
+                                    { amount: 345, wallet: '0xe4...B2D9', time: '3h ago' },
+                                    { amount: 2100, wallet: '0x88...A1C4', time: '1d ago' },
+                                    { amount: 78, wallet: '0x22...E5F6', time: '2d ago' },
+                                ];
+
+                                const createCard = (winner) => `
+                            <div class="glass rounded-xl px-5 py-3 flex items-center gap-3 border-l-4 ${winner.amount > 500 ? 'border-primary' : 'border-gold'} min-w-[200px]">
+                                <div class="w-10 h-10 ${winner.amount > 500 ? 'bg-primary/20' : 'bg-gold/20'} rounded-full flex items-center justify-center">
+                                    <svg class="w-5 h-5 ${winner.amount > 500 ? 'text-primary' : 'text-gold'}" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                                 </div>
                                 <div>
-                                    <p class="text-gold font-bold">$234</p>
-                                    <p class="text-slate-400 text-xs">0x7c...ED12</p>
+                                    <p class="${winner.amount > 500 ? 'text-primary' : 'text-gold'} font-bold">$${winner.amount.toLocaleString()}</p>
+                                    <p class="text-slate-400 text-xs">${winner.wallet} • ${winner.time}</p>
                                 </div>
                             </div>
-                            <div
-                                class="glass rounded-xl px-5 py-3 flex items-center gap-3 border-l-4 border-primary min-w-[200px]">
-                                <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-primary font-bold">$1,050</p>
-                                    <p class="text-slate-400 text-xs">0x9a...F3B1</p>
-                                </div>
+                        `;
+
+                                // Generate html
+                                const cardsHtml = winners.map(createCard).join('');
+
+                                // We need two batches for the infinite loop effect
+                                container.innerHTML = `
+                            <div class="flex items-center gap-6">
+                                ${cardsHtml}
                             </div>
-                            <div
-                                class="glass rounded-xl px-5 py-3 flex items-center gap-3 border-l-4 border-secondary min-w-[200px]">
-                                <div class="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-secondary" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-secondary font-bold">$56</p>
-                                    <p class="text-slate-400 text-xs">0x3d...A2C9</p>
-                                </div>
+                            <div class="flex items-center gap-6" aria-hidden="true">
+                                ${cardsHtml}
                             </div>
-                            <div
-                                class="glass rounded-xl px-5 py-3 flex items-center gap-3 border-l-4 border-gold min-w-[200px]">
-                                <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-gold font-bold">$892</p>
-                                    <p class="text-slate-400 text-xs">0x1f...E9D4</p>
-                                </div>
-                            </div>
-                            <div
-                                class="glass rounded-xl px-5 py-3 flex items-center gap-3 border-l-4 border-cta min-w-[200px]">
-                                <div class="w-10 h-10 bg-cta/20 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-cta" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-cta font-bold">$12</p>
-                                    <p class="text-slate-400 text-xs">0x5b...C1A8</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Winner Cards Batch 1 Duplicate (for loop) -->
-                        <div class="flex items-center gap-6" aria-hidden="true">
-                            <div
-                                class="glass rounded-xl px-5 py-3 flex items-center gap-3 border-l-4 border-gold min-w-[200px]">
-                                <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-gold font-bold">$234</p>
-                                    <p class="text-slate-400 text-xs">0x7c...ED12</p>
-                                </div>
-                            </div>
-                            <div
-                                class="glass rounded-xl px-5 py-3 flex items-center gap-3 border-l-4 border-primary min-w-[200px]">
-                                <div class="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-primary font-bold">$1,050</p>
-                                    <p class="text-slate-400 text-xs">0x9a...F3B1</p>
-                                </div>
-                            </div>
-                            <div
-                                class="glass rounded-xl px-5 py-3 flex items-center gap-3 border-l-4 border-secondary min-w-[200px]">
-                                <div class="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-secondary" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-secondary font-bold">$56</p>
-                                    <p class="text-slate-400 text-xs">0x3d...A2C9</p>
-                                </div>
-                            </div>
-                            <div
-                                class="glass rounded-xl px-5 py-3 flex items-center gap-3 border-l-4 border-gold min-w-[200px]">
-                                <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-gold font-bold">$892</p>
-                                    <p class="text-slate-400 text-xs">0x1f...E9D4</p>
-                                </div>
-                            </div>
-                            <div
-                                class="glass rounded-xl px-5 py-3 flex items-center gap-3 border-l-4 border-cta min-w-[200px]">
-                                <div class="w-10 h-10 bg-cta/20 rounded-full flex items-center justify-center">
-                                    <svg class="w-5 h-5 text-cta" fill="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-cta font-bold">$12</p>
-                                    <p class="text-slate-400 text-xs">0x5b...C1A8</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        `;
+                            })();
+                    </script>
                 </div>
 
                 <!-- Feature Screenshots Grid -->
@@ -701,29 +614,30 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         <!-- Screenshot Placeholder 1 -->
                         <div class="glass rounded-2xl p-3 group">
-                            <div class="relative w-full pt-[75%] bg-dark rounded-xl overflow-hidden">
+                            <!-- Changing aspect ratio to 4/5 (approx 0.8) for better portrait display -->
+                            <div class="relative w-full aspect-[4/5] bg-dark rounded-xl overflow-hidden">
                                 <img src="characters/rabbit-jackpot.png" alt="Big Jackpot Wins"
-                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             </div>
-                            <p class="text-slate-500 text-sm text-center mt-2">Big Jackpot Wins</p>
+                            <p class="text-slate-500 text-sm text-center mt-3 font-medium">Big Jackpot Wins</p>
                         </div>
 
                         <!-- Screenshot Placeholder 2 -->
                         <div class="glass rounded-2xl p-3 group">
-                            <div class="relative w-full pt-[75%] bg-dark rounded-xl overflow-hidden">
+                            <div class="relative w-full aspect-[4/5] bg-dark rounded-xl overflow-hidden">
                                 <img src="characters/rabbit-777.png" alt="Lucky 777"
-                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             </div>
-                            <p class="text-slate-500 text-sm text-center mt-2">Multiple Ways to Win</p>
+                            <p class="text-slate-500 text-sm text-center mt-3 font-medium">Multiple Ways to Win</p>
                         </div>
 
                         <!-- Screenshot Placeholder 3 -->
                         <div class="glass rounded-2xl p-3 group sm:col-span-2 lg:col-span-1">
-                            <div class="relative w-full pt-[75%] bg-dark rounded-xl overflow-hidden">
+                            <div class="relative w-full aspect-[4/5] bg-dark rounded-xl overflow-hidden">
                                 <img src="characters/rabbit-chosen.png" alt="Chosen One"
-                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                    class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             </div>
-                            <p class="text-slate-500 text-sm text-center mt-2">Community & Rewards</p>
+                            <p class="text-slate-500 text-sm text-center mt-3 font-medium">Community & Rewards</p>
                         </div>
                     </div>
                 </div>
@@ -743,52 +657,52 @@
         </section>
 
         <script>
-                // Carousel Logic
-                (function () {
-                    const track = document.getElementById('video-carousel');
-                    const nextBtn = document.getElementById('next-slide');
-                    const prevBtn = document.getElementById('prev-slide');
-                    const indicators = document.querySelectorAll('.indicator');
+            // Carousel Logic
+            (function () {
+                const track = document.getElementById('video-carousel');
+                const nextBtn = document.getElementById('next-slide');
+                const prevBtn = document.getElementById('prev-slide');
+                const indicators = document.querySelectorAll('.indicator');
 
-                    if (!track || !nextBtn || !prevBtn) return;
+                if (!track || !nextBtn || !prevBtn) return;
 
-                    let currentIndex = 0;
-                    const totalSlides = 3;
+                let currentIndex = 0;
+                const totalSlides = 3;
 
-                    function updateCarousel() {
-                        const translateX = currentIndex * -100;
-                        track.style.transform = `translateX(${translateX}%)`;
+                function updateCarousel() {
+                    const translateX = currentIndex * -100;
+                    track.style.transform = `translateX(${translateX}%)`;
 
-                        // Update indicators
-                        indicators.forEach((indicator, index) => {
-                            if (index === currentIndex) {
-                                indicator.classList.remove('bg-white/40');
-                                indicator.classList.add('bg-white');
-                            } else {
-                                indicator.classList.remove('bg-white');
-                                indicator.classList.add('bg-white/40');
-                            }
-                        });
-                    }
-
-                    nextBtn.addEventListener('click', () => {
-                        currentIndex = (currentIndex + 1) % totalSlides;
-                        updateCarousel();
-                    });
-
-                    prevBtn.addEventListener('click', () => {
-                        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-                        updateCarousel();
-                    });
-
-                    // Add click events to indicators
+                    // Update indicators
                     indicators.forEach((indicator, index) => {
-                        indicator.addEventListener('click', () => {
-                            currentIndex = index;
-                            updateCarousel();
-                        });
+                        if (index === currentIndex) {
+                            indicator.classList.remove('bg-white/40');
+                            indicator.classList.add('bg-white');
+                        } else {
+                            indicator.classList.remove('bg-white');
+                            indicator.classList.add('bg-white/40');
+                        }
                     });
-                })();
+                }
+
+                nextBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                    updateCarousel();
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                    updateCarousel();
+                });
+
+                // Add click events to indicators
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', () => {
+                        currentIndex = index;
+                        updateCarousel();
+                    });
+                });
+            })();
         </script>
 
     </main>
