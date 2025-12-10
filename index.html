@@ -189,10 +189,21 @@
             </div>
 
             <!-- YouTube Carousel -->
-            <div class="relative z-10 w-full max-w-4xl mx-auto mb-16">
+            <div class="relative z-10 w-full max-w-4xl mx-auto mb-16 mt-8 md:mt-0">
+                <!-- Mobile Mascot (Rabbit Gold) - Sitting on Top -->
+                <div class="absolute -top-12 left-1/2 -translate-x-1/2 w-[60%] z-20 md:hidden pointer-events-none">
+                    <img src="images/rabbit-gold.png" alt=""
+                        class="w-full h-auto object-contain drop-shadow-2xl filter brightness-110">
+                </div>
+
+                <!-- Desktop Mascot (Couple Rabbit) - Leaning Left -->
+                <div class="absolute bottom-[-10%] -left-[15%] h-[85%] z-20 hidden md:block pointer-events-none">
+                    <img src="images/couple-rabbit.png" alt="" class="h-full w-auto object-contain drop-shadow-2xl">
+                </div>
+
                 <div class="glass rounded-2xl p-2 md:p-3 relative group">
                     <!-- Video Container -->
-                    <div class="relative w-full pt-[56.25%] overflow-hidden rounded-xl bg-black">
+                    <div class="relative w-full pt-[56.25%] overflow-hidden rounded-xl bg-black shadow-inner">
                         <iframe id="carousel-iframe" class="absolute inset-0 w-full h-full"
                             src="https://www.youtube.com/embed/OWKZ3EDD_gw?enablejsapi=1&rel=0" title="$1 Jackpot Video"
                             frameborder="0"
