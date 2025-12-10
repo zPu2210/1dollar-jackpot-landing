@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="$1 Jackpot - Web3 gaming with $1 spins, 95% prize pool, blockchain transparency. Play big with small stakes.">
+    <title>$1 Jackpot | Web3 Gaming - Spin to Win</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="$1 Jackpot | Web3 Gaming">
+    <meta property="og:description"
+        content="The Web3 Game Engineered for Fun. $1 spins, 95% prize pool, blockchain transparency.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://t.me/OneJackpotOfficial">
+    <meta property="og:image" content="1$ Jackpot logo.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="$1 Jackpot | Web3 Gaming">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7C3AED',
+                        secondary: '#F59E0B',
+                        cta: '#F43F5E',
+                        'cta-hover': '#E11D48',
+                        dark: '#0A0E27',
+                        'dark-card': '#0F172A',
+                        accent: '#A78BFA',
+                        gold: '#FBBF24',
+                    },
+                    fontFamily: {
+                        display: ['Fredoka', 'sans-serif'],
+                        body: ['Nunito', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #0A0E27;
+            color: #F8FAFC;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        /* Glassmorphism utility */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Winner notification animation */
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        .winner-notification {
+            animation: slideIn 0.5s ease-out, slideOut 0.5s ease-in 4.5s forwards;
+        }
+
+        /* Aurora gradient */
+        .aurora-gradient {
+            background: linear-gradient(135deg, #7C3AED 0%, #F59E0B 50%, #F43F5E 100%);
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Focus visible styles for accessibility */
+        :focus-visible {
+            outline: 2px solid #7C3AED;
+            outline-offset: 2px;
+        }
+
+        /* Screen reader only utility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-dark min-h-screen antialiased">
+    <!-- Skip to main content link (Accessibility) -->
+    <a href="#main-content"
+        class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:outline-none">
+        Skip to main content
+    </a>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="hero"
+            class="relative min-h-screen flex flex-col items-center justify-center px-4 md:px-6 lg:px-8 py-12 overflow-hidden">
+            <!-- Aurora background effect -->
+            <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+                <div
+                    class="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-primary/20 via-transparent to-transparent rounded-full blur-3xl">
+                </div>
+                <div
+                    class="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-secondary/20 via-transparent to-transparent rounded-full blur-3xl">
+                </div>
+            </div>
+
+            <!-- Logo -->
+            <div class="relative z-10 mb-8">
+                <img src="1$ Jackpot logo.png" alt="$1 Jackpot Logo - Web3 Gaming"
+                    class="w-32 h-32 md:w-40 md:h-40 object-contain drop-shadow-[0_0_30px_rgba(124,58,237,0.5)]"
+                    width="160" height="160">
+            </div>
+
+            <!-- Headlines -->
+            <div class="relative z-10 text-center max-w-4xl mx-auto mb-10">
+                <h1
+                    class="text-4xl md:text-5xl lg:text-6xl font-bold font-display mb-6 bg-gradient-to-r from-white via-accent to-gold bg-clip-text text-transparent">
+                    A Single Dollar Spin Can Change Everything
+                </h1>
+                <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
+                    The Web3 Game Engineered for Fun. Play Big with Small Stakes and Control Your Thrill.
+                </p>
+            </div>
+
+            <!-- YouTube Video -->
+            <div class="relative z-10 w-full max-w-3xl mx-auto mb-8">
+                <div class="glass rounded-2xl p-2 md:p-3">
+                    <div class="relative w-full pt-[56.25%]"> <!-- 16:9 Aspect Ratio -->
+                        <iframe class="absolute inset-0 w-full h-full rounded-xl"
+                            src="https://www.youtube.com/embed/OWKZ3EDD_gw?si=o7D8fF9enJJP9Q_F"
+                            title="$1 Jackpot - How It Works" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Demo Video Placeholder -->
+            <div class="relative z-10 w-full max-w-2xl mx-auto mb-10">
+                <div class="glass rounded-2xl p-4 md:p-6">
+                    <div class="relative w-full pt-[56.25%] bg-dark-card rounded-xl overflow-hidden">
+                        <!-- Placeholder content -->
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <svg class="w-16 h-16 text-slate-500 mb-4" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <p class="text-slate-400 text-sm font-medium">Demo Video Coming Soon</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Primary CTA -->
+            <div class="relative z-10">
+                <a href="https://t.me/OneJackpotOfficial" target="_blank" rel="noopener noreferrer"
+                    class="group inline-flex items-center gap-3 bg-cta hover:bg-cta-hover text-white font-semibold text-lg px-8 py-4 rounded-full shadow-lg shadow-cta/30 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-cta/40">
+                    <!-- Telegram Icon -->
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path
+                            d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+                    </svg>
+                    <span>Play $1 Jackpot Now</span>
+                    <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Scroll Indicator (optional) -->
+            <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden md:block" aria-hidden="true">
+                <svg class="w-6 h-6 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+            </div>
+        </section>
+
+        <!-- Section 2: Zero-Friction Conversion -->
+        <section id="instant-play" class="relative py-20 md:py-28 px-4 md:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-4">
+                        No Install. No Sign-Up.
+                        <span class="block text-secondary">Just Instant Play.</span>
+                    </h2>
+                    <p class="text-slate-400 text-lg max-w-xl mx-auto">
+                        From zero to winning in under 10 seconds. That's the $1 Jackpot promise.
+                    </p>
+                </div>
+
+                <!-- Steps Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
+                    <!-- Step 1: Connect Wallet -->
+                    <div
+                        class="glass rounded-2xl p-6 md:p-8 text-center relative group hover:bg-white/15 transition-colors">
+                        <!-- Step Number Badge -->
+                        <div
+                            class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-primary/30">
+                            1
+                        </div>
+                        <!-- Icon -->
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold font-display mb-2">Connect Wallet</h3>
+                        <p class="text-slate-400 text-sm">One tap to link your crypto wallet. No registration forms.</p>
+                    </div>
+
+                    <!-- Connector Arrow (Desktop) -->
+                    <div class="hidden md:flex absolute left-[calc(33.33%-1rem)] top-1/2 -translate-y-1/2 text-slate-600"
+                        aria-hidden="true">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                    </div>
+
+                    <!-- Step 2: Tap $1 -->
+                    <div
+                        class="glass rounded-2xl p-6 md:p-8 text-center relative group hover:bg-white/15 transition-colors">
+                        <div
+                            class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-secondary rounded-full flex items-center justify-center text-dark font-bold text-sm shadow-lg shadow-secondary/30">
+                            2
+                        </div>
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-secondary/20 to-secondary/5 rounded-2xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold font-display mb-2">Tap $1</h3>
+                        <p class="text-slate-400 text-sm">One dollar. One spin. Maximum fun with minimum risk.</p>
+                    </div>
+
+                    <!-- Step 3: Result -->
+                    <div
+                        class="glass rounded-2xl p-6 md:p-8 text-center relative group hover:bg-white/15 transition-colors">
+                        <div
+                            class="absolute -top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-cta rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-cta/30">
+                            3
+                        </div>
+                        <div
+                            class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-cta/20 to-cta/5 rounded-2xl flex items-center justify-center">
+                            <svg class="w-8 h-8 text-cta" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold font-display mb-2">Result in 3 Seconds</h3>
+                        <p class="text-slate-400 text-sm">Instant, transparent results powered by blockchain.</p>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="text-center">
+                    <a href="https://t.me/OneJackpotOfficial" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white font-semibold text-lg px-8 py-4 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                        <span>Try Your $1 Spin Now</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Humor Feature -->
+        <section id="why-limit" class="relative py-20 md:py-28 px-4 md:px-6 lg:px-8 bg-dark-card">
+            <!-- Decorative element -->
+            <div
+                class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent">
+            </div>
+
+            <div class="max-w-4xl mx-auto text-center">
+                <!-- Headline -->
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-6">
+                    The Real Reason We Limit You:
+                    <span class="block text-cta mt-2">We're Afraid of You Winning</span>
+                </h2>
+
+                <!-- Body Copy -->
+                <p class="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-2xl mx-auto">
+                    With <span class="text-gold font-semibold">95% of every dollar</span> going back to the prize pool,
+                    we had to protect ourselves somehow. So we capped it at
+                    <span class="text-secondary font-semibold">$3 per day</span>. Call it self-preservation.
+                </p>
+
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
+                    <!-- Stat 1: Prize Pool -->
+                    <div class="glass rounded-2xl p-6">
+                        <div class="text-4xl md:text-5xl font-bold font-display text-gold mb-2">95%</div>
+                        <div class="text-slate-400 text-sm">Prize Pool Return</div>
+                    </div>
+
+                    <!-- Stat 2: Daily Limit -->
+                    <div class="glass rounded-2xl p-6">
+                        <div class="text-4xl md:text-5xl font-bold font-display text-secondary mb-2">$3</div>
+                        <div class="text-slate-400 text-sm">Daily Limit</div>
+                    </div>
+
+                    <!-- Stat 3: Spins -->
+                    <div class="glass rounded-2xl p-6">
+                        <div class="text-4xl md:text-5xl font-bold font-display text-primary mb-2">3</div>
+                        <div class="text-slate-400 text-sm">Micro-doses of Goosebumps</div>
+                    </div>
+                </div>
+
+                <!-- Value Proposition -->
+                <div class="glass rounded-2xl p-8 md:p-10 mb-10">
+                    <h3 class="text-2xl md:text-3xl font-semibold font-display mb-4">
+                        Play Big with Small Stakes
+                    </h3>
+                    <p class="text-slate-300 text-lg max-w-xl mx-auto">
+                        Every spin is a chance. Every dollar stretches further.
+                        No whale advantages. Just pure, fair, thrilling gameplay.
+                    </p>
+                </div>
+
+                <!-- Tagline -->
+                <p class="text-2xl md:text-3xl font-display text-accent italic">
+                    "Three micro-doses of goosebumps"
+                </p>
+            </div>
+
+            <!-- Decorative element -->
+            <div
+                class="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary/50 to-transparent">
+            </div>
+        </section>
+
+        <!-- Section 4: Trust & Transparency -->
+        <section id="trust" class="relative py-20 md:py-28 px-4 md:px-6 lg:px-8">
+            <div class="max-w-6xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-4">
+                        Fairness on the <span class="text-primary">Blockchain</span>
+                    </h2>
+                    <p class="text-slate-400 text-lg max-w-xl mx-auto">
+                        Every spin, every result, every payout — verifiable and immutable.
+                    </p>
+                </div>
+
+                <!-- Trust Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                    <!-- Card 1: On-chain Transparency -->
+                    <div class="glass rounded-2xl p-8 text-center group hover:bg-white/15 transition-all duration-300">
+                        <!-- Icon -->
+                        <div
+                            class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold font-display mb-3">On-chain Transparency</h3>
+                        <p class="text-slate-400">
+                            Every transaction is recorded on the blockchain. Audit anytime, trust always.
+                        </p>
+                    </div>
+
+                    <!-- Card 2: 95% Payout -->
+                    <div class="glass rounded-2xl p-8 text-center group hover:bg-white/15 transition-all duration-300">
+                        <div
+                            class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-gold/20 to-gold/5 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <svg class="w-10 h-10 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold font-display mb-3">95% Payout Rate</h3>
+                        <p class="text-slate-400">
+                            The highest return in the industry. Your dollar works harder here.
+                        </p>
+                    </div>
+
+                    <!-- Card 3: Smart Contracts -->
+                    <div class="glass rounded-2xl p-8 text-center group hover:bg-white/15 transition-all duration-300">
+                        <div
+                            class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-secondary/20 to-secondary/5 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <svg class="w-10 h-10 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold font-display mb-3">Trustless Execution</h3>
+                        <p class="text-slate-400">
+                            Smart contracts handle everything. No human interference, no manipulation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Social Proof -->
+        <section id="social-proof" class="relative py-20 md:py-28 px-4 md:px-6 lg:px-8 bg-dark-card overflow-hidden">
+            <!-- Decorative element -->
+            <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent">
+            </div>
+
+            <div class="max-w-6xl mx-auto">
+                <!-- Section Header -->
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-4">
+                        Turn Spare Change Into <span class="text-gold">Excitement</span>
+                    </h2>
+                    <p class="text-slate-400 text-lg max-w-xl mx-auto">
+                        Real players. Real wins. Real thrills — all from just $1.
+                    </p>
+                </div>
+
+                <!-- Winner Notification Container -->
+                <div id="winner-container" class="fixed top-20 right-4 z-50 max-w-sm" aria-live="polite"
+                    aria-label="Recent winner notification">
+                    <!-- Notifications will be injected here by JS -->
+                </div>
+
+                <!-- Static Example (visible before JS runs) -->
+                <div class="flex justify-center mb-12">
+                    <div class="glass rounded-2xl px-6 py-4 flex items-center gap-4 border-l-4 border-gold">
+                        <div class="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg class="w-6 h-6 text-gold" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="text-gold font-semibold">Someone just won $234!</p>
+                            <p class="text-slate-400 text-sm">Wallet: 0x7c3a...ED12 • 2 min ago</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Screenshots Grid -->
+                <div class="mb-16">
+                    <h3 class="text-xl font-semibold font-display text-center mb-8 text-slate-300">
+                        See It In Action
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Screenshot Placeholder 1 -->
+                        <div class="glass rounded-2xl p-3 group">
+                            <div class="relative w-full pt-[75%] bg-dark rounded-xl overflow-hidden">
+                                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                    <svg class="w-12 h-12 text-slate-600 mb-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <p class="text-slate-500 text-sm">Game Interface</p>
+                                </div>
+                                <!-- Replace with: <img src="screenshot-1.png" alt="Game interface screenshot" class="absolute inset-0 w-full h-full object-cover"> -->
+                            </div>
+                        </div>
+
+                        <!-- Screenshot Placeholder 2 -->
+                        <div class="glass rounded-2xl p-3 group">
+                            <div class="relative w-full pt-[75%] bg-dark rounded-xl overflow-hidden">
+                                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                    <svg class="w-12 h-12 text-slate-600 mb-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <p class="text-slate-500 text-sm">Winning Moment</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Screenshot Placeholder 3 -->
+                        <div class="glass rounded-2xl p-3 group sm:col-span-2 lg:col-span-1">
+                            <div class="relative w-full pt-[75%] bg-dark rounded-xl overflow-hidden">
+                                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                    <svg class="w-12 h-12 text-slate-600 mb-2" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" aria-hidden="true">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <p class="text-slate-500 text-sm">Telegram Integration</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary CTA -->
+                <div class="text-center">
+                    <a href="https://t.me/OneJackpotOfficial" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-3 bg-gold hover:bg-amber-400 text-dark font-semibold text-lg px-8 py-4 rounded-full shadow-lg shadow-gold/30 transition-all duration-300 hover:scale-105">
+                        <span>Start with Your $1</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <script>
+                // Winner notification animation
+                (function () {
+                    const container = document.getElementById('winner-container');
+                    if (!container) return;
+
+                    const amounts = [15, 27, 42, 89, 123, 156, 234, 312, 456, 567];
+                    const walletPrefixes = ['0x7c3a', '0x4e2b', '0x9f1d', '0x3a8c', '0x6b5e', '0x2d7f', '0x8a4c', '0x5e9b'];
+                    const walletSuffixes = ['ED12', 'A8F3', 'C7B2', 'D4E1', 'F6A9', 'B3C8', 'E2D7', '91F5'];
+
+                    function createNotification() {
+                        const amount = amounts[Math.floor(Math.random() * amounts.length)];
+                        const prefix = walletPrefixes[Math.floor(Math.random() * walletPrefixes.length)];
+                        const suffix = walletSuffixes[Math.floor(Math.random() * walletSuffixes.length)];
+                        const time = Math.floor(Math.random() * 5) + 1;
+
+                        const notification = document.createElement('div');
+                        notification.className = 'winner-notification glass rounded-2xl px-5 py-4 flex items-center gap-3 border-l-4 border-gold mb-3 shadow-xl';
+                        notification.innerHTML = `
+          <div class="w-10 h-10 bg-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-gold font-semibold text-sm">Won $${amount}!</p>
+            <p class="text-slate-400 text-xs">${prefix}...${suffix} • ${time}m ago</p>
+          </div>
+        `;
+
+                        container.appendChild(notification);
+
+                        // Remove after animation
+                        setTimeout(() => {
+                            notification.style.animation = 'slideOut 0.5s ease-in forwards';
+                            setTimeout(() => notification.remove(), 500);
+                        }, 5000);
+                    }
+
+                    // Create initial notification after 3 seconds
+                    setTimeout(createNotification, 3000);
+
+                    // Create new notification every 8-15 seconds
+                    setInterval(() => {
+                        if (container.children.length < 3) {
+                            createNotification();
+                        }
+                    }, Math.random() * 7000 + 8000);
+                })();
+        </script>
+
+    </main>
+    <!-- End Main Content -->
+
+    <!-- Footer -->
+    <footer class="relative py-12 md:py-16 px-4 md:px-6 lg:px-8 bg-[#070A1A]">
+        <!-- Top border decoration -->
+        <div
+            class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent">
+        </div>
+
+        <div class="max-w-6xl mx-auto">
+            <!-- Footer Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-10">
+                <!-- Column 1: Logo & Tagline -->
+                <div class="text-center md:text-left">
+                    <img src="1$ Jackpot logo.png" alt="$1 Jackpot Logo"
+                        class="w-16 h-16 mx-auto md:mx-0 mb-4 object-contain" width="64" height="64" loading="lazy">
+                    <p class="text-slate-400 text-sm">
+                        The Web3 Game Engineered for Fun.
+                        <br>Play Big with Small Stakes.
+                    </p>
+                </div>
+
+                <!-- Column 2: Legal Links -->
+                <div class="text-center">
+                    <h4 class="text-white font-semibold font-display mb-4">Legal</h4>
+                    <nav aria-label="Legal links">
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="#terms"
+                                    class="text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark rounded">
+                                    Terms of Service
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#privacy"
+                                    class="text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark rounded">
+                                    Privacy Policy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#responsible"
+                                    class="text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark rounded">
+                                    Responsible Gaming
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Column 3: Social & CTA -->
+                <div class="text-center md:text-right">
+                    <h4 class="text-white font-semibold font-display mb-4">Connect</h4>
+                    <div class="flex items-center justify-center md:justify-end gap-4 mb-6">
+                        <!-- Telegram -->
+                        <a href="https://t.me/OneJackpotOfficial" target="_blank" rel="noopener noreferrer"
+                            class="w-10 h-10 bg-slate-800 hover:bg-primary rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark"
+                            aria-label="Join us on Telegram">
+                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path
+                                    d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Mini CTA -->
+                    <a href="https://t.me/OneJackpotOfficial" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 text-cta hover:text-white font-semibold transition-colors focus:outline-none focus:underline">
+                        <span>Play Now</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Age Compliance Notice -->
+            <div class="border-t border-slate-800 pt-8 mb-6">
+                <div class="glass rounded-xl px-6 py-4 text-center max-w-2xl mx-auto">
+                    <p class="text-amber-400 font-semibold text-sm mb-2">
+                        <svg class="w-5 h-5 inline-block mr-1 -mt-0.5" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        18+ Only (19+ where applicable)
+                    </p>
+                    <p class="text-slate-500 text-xs">
+                        Gambling can be addictive. Please play responsibly.
+                        If you need help, visit <a href="https://www.begambleaware.org" target="_blank"
+                            rel="noopener noreferrer" class="underline hover:text-slate-300">BeGambleAware.org</a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center">
+                <p class="text-slate-600 text-sm">
+                    &copy; 2024 $1 Jackpot. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!--
+    PERFORMANCE OPTIMIZATION NOTES:
+
+    Before deploying to production:
+    1. Optimize logo image (1.8MB -> ~100KB)
+       - Use TinyPNG or Squoosh
+       - Consider WebP with PNG fallback
+       - Add srcset for responsive images
+
+    2. Consider self-hosting fonts
+       - Download Google Fonts
+       - Use font-display: swap
+
+    3. Add meta tags for social:
+       - Update og:image with full URL
+       - Add og:image:width and og:image:height
+
+    4. Add favicon
+       - favicon.ico
+       - apple-touch-icon.png
+       - manifest.json for PWA (optional)
+  -->
+</body>
+
+</html>
