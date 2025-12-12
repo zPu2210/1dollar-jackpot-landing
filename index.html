@@ -13,7 +13,7 @@
     <meta property="og:description"
         content="The Web3 Game Engineered for Fun. $1 spins, 95% prize pool, blockchain transparency.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://t.me/OneJackpotOfficial">
+    <meta property="og:url" content="https://t.me/OneDollarJackpotBot?startapp=1114D8AF">
     <meta property="og:image" content="1$ Jackpot logo.png">
 
     <!-- Twitter Card -->
@@ -23,12 +23,29 @@
     <!-- Favicon -->
     <link rel="icon" href="1$ Jackpot logo.png" type="image/png">
 
+    <!-- Google Analytics (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RSKWXJKMV7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RSKWXJKMV7');
+    </script>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "uk9wy2moi2");
+    </script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Tailwind CDN -->
@@ -69,7 +86,7 @@
     <style>
         /* Base styles */
         body {
-            font-family: 'Nunito', sans-serif;
+            font-family: 'Nunito', 'Noto Sans KR', sans-serif;
             background-color: #0A0E27;
             color: #F8FAFC;
         }
@@ -80,7 +97,7 @@
         h4,
         h5,
         h6 {
-            font-family: 'Fredoka', sans-serif;
+            font-family: 'Fredoka', 'Noto Sans KR', sans-serif;
         }
 
         /* Glassmorphism utility */
@@ -155,20 +172,103 @@
             white-space: nowrap;
             border-width: 0;
         }
+
+        /* Subtle pulse for bonus badge */
+        @keyframes pulse-subtle {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.95;
+                transform: scale(1.02);
+            }
+        }
+
+        .animate-pulse-subtle {
+            animation: pulse-subtle 3s ease-in-out infinite;
+        }
+
+        /* Respect reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .animate-pulse-subtle {
+                animation: none;
+            }
+        }
+
+        /* Sticky CTA safe area for iOS */
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+            #sticky-cta {
+                padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+            }
+        }
+
+        /* Mobile Optimizations */
+        :root {
+            --vh: 1vh;
+        }
+
+        .min-h-screen {
+            min-height: 100vh;
+            min-height: calc(var(--vh, 1vh) * 100);
+        }
+
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+        }
+
+        img, video, iframe {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Touch feedback for mobile */
+        @media (hover: none) {
+            .hover\:scale-105:active {
+                transform: scale(0.98);
+            }
+
+            a, button {
+                -webkit-tap-highlight-color: rgba(124, 58, 237, 0.3);
+            }
+        }
+
+        /* Mobile touch targets */
+        @media (max-width: 768px) {
+            footer a {
+                padding: 8px;
+                min-height: 44px;
+                display: inline-flex;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 
 <body class="bg-dark min-h-screen antialiased">
-    <!-- Skip to main content link (Accessibility) -->
-    <a href="#main-content"
-        class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:outline-none">
-        Skip to main content
-    </a>
+    <!-- Skip Links (Accessibility) -->
+    <div class="sr-only focus-within:not-sr-only focus-within:fixed focus-within:top-4 focus-within:left-4 focus-within:z-[200] focus-within:flex focus-within:flex-col focus-within:gap-2">
+        <a href="#main-content"
+           class="bg-primary text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-white">
+            Skip to main content
+        </a>
+        <a href="#hero-cta"
+           class="bg-primary text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-white">
+            Skip to play button
+        </a>
+        <a href="#footer"
+           class="bg-primary text-white px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-white">
+            Skip to footer
+        </a>
+    </div>
 
     <!-- Main Content -->
     <main id="main-content">
         <!-- Hero Section -->
         <section id="hero"
+            role="banner"
+            aria-label="Welcome to $1 Jackpot"
             class="relative min-h-screen flex flex-col items-center justify-center px-4 md:px-6 lg:px-8 py-12 overflow-hidden">
             <!-- Aurora background effect -->
             <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
@@ -180,6 +280,18 @@
                 </div>
             </div>
 
+            <!-- Language Switcher -->
+            <div class="absolute top-4 right-4 z-[9999]">
+                <button id="lang-switcher"
+                        class="glass px-4 py-2 rounded-full flex items-center gap-2 hover:bg-white/20 transition-all text-sm font-medium"
+                        aria-label="Switch language">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+                    </svg>
+                    <span id="lang-label">EN</span>
+                </button>
+            </div>
+
             <!-- Logo -->
             <div class="relative z-10 mb-8">
                 <img src="1$ Jackpot logo.png" alt="$1 Jackpot Logo - Web3 Gaming"
@@ -189,64 +301,121 @@
 
             <!-- Headlines -->
             <div class="relative z-10 text-center max-w-4xl mx-auto mb-10">
+                <!-- Welcome Bonus Badge -->
+                <div class="relative z-10 mb-6">
+                    <div class="inline-flex items-center gap-2 glass rounded-full px-6 py-3 border-2 border-gold/50 animate-pulse-subtle">
+                        <svg class="w-6 h-6 text-gold" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <span class="text-white font-bold text-sm md:text-base" data-i18n="hero.bonus">NEW PLAYER BONUS:</span>
+                        <span class="text-gold font-bold text-base md:text-lg" data-i18n="hero.bonus.value">30 FREE SPINS + $1</span>
+                    </div>
+                </div>
+
                 <h1
-                    class="text-4xl md:text-5xl lg:text-6xl font-bold font-display mb-6 bg-gradient-to-r from-white via-accent to-gold bg-clip-text text-transparent">
+                    class="text-4xl md:text-5xl lg:text-6xl font-bold font-display mb-6 bg-gradient-to-r from-white via-accent to-gold bg-clip-text text-transparent"
+                    data-i18n="hero.headline">
                     A Single Dollar Spin Can Change Everything
                 </h1>
-                <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-                    The Web3 Game Engineered for Fun. Play Big with Small Stakes and Control Your Thrill.
+                <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8" data-i18n="hero.subheadline">
+                    Play Big with Small Stakes
                 </p>
             </div>
 
-            <!-- Video Carousel -->
+            <!-- Video Carousel Enhanced -->
             <div class="relative z-10 w-full max-w-4xl mx-auto mb-12">
                 <div class="glass rounded-2xl p-2 md:p-3 relative overflow-hidden group">
                     <!-- Carousel Track -->
                     <div id="video-carousel" class="flex transition-transform duration-500 ease-out">
                         <!-- Slide 1 -->
                         <div class="w-full flex-shrink-0 px-1">
-                            <div class="relative w-full pt-[56.25%]">
-                                <iframe class="absolute inset-0 w-full h-full rounded-xl"
-                                    src="https://www.youtube.com/embed/qsw8q6kw-eY" title="How It Works" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
-                                    loading="lazy"></iframe>
+                            <div class="relative w-full pt-[56.25%] bg-dark rounded-xl overflow-hidden cursor-pointer video-trigger group/video"
+                                 data-video-id="qsw8q6kw-eY"
+                                 data-title="How It Works"
+                                 role="button"
+                                 tabindex="0"
+                                 aria-label="Play How It Works video">
+                                <!-- Thumbnail -->
+                                <img src="https://img.youtube.com/vi/qsw8q6kw-eY/maxresdefault.jpg"
+                                     alt="How It Works video thumbnail"
+                                     class="absolute inset-0 w-full h-full object-cover"
+                                     loading="lazy">
+                                <!-- Play Button Overlay -->
+                                <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover/video:bg-black/40 transition-colors">
+                                    <div class="w-16 h-16 md:w-20 md:h-20 bg-cta rounded-full flex items-center justify-center shadow-lg transform group-hover/video:scale-110 transition-transform">
+                                        <svg class="w-8 h-8 md:w-10 md:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <!-- Video Title Badge -->
+                                <div class="absolute bottom-4 left-4 glass px-3 py-1 rounded-full">
+                                    <span class="text-white text-sm font-medium" data-i18n="hero.video1.title">How It Works</span>
+                                </div>
                             </div>
                         </div>
+
                         <!-- Slide 2 -->
                         <div class="w-full flex-shrink-0 px-1">
-                            <div class="relative w-full pt-[56.25%]">
-                                <iframe class="absolute inset-0 w-full h-full rounded-xl"
-                                    src="https://www.youtube.com/embed/9Zi8bXV-yps" title="Gameplay Demo"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
-                                    loading="lazy"></iframe>
+                            <div class="relative w-full pt-[56.25%] bg-dark rounded-xl overflow-hidden cursor-pointer video-trigger group/video"
+                                 data-video-id="9Zi8bXV-yps"
+                                 data-title="Gameplay Demo"
+                                 role="button"
+                                 tabindex="0"
+                                 aria-label="Play Gameplay Demo video">
+                                <img src="https://img.youtube.com/vi/9Zi8bXV-yps/maxresdefault.jpg"
+                                     alt="Gameplay Demo video thumbnail"
+                                     class="absolute inset-0 w-full h-full object-cover"
+                                     loading="lazy">
+                                <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover/video:bg-black/40 transition-colors">
+                                    <div class="w-16 h-16 md:w-20 md:h-20 bg-cta rounded-full flex items-center justify-center shadow-lg transform group-hover/video:scale-110 transition-transform">
+                                        <svg class="w-8 h-8 md:w-10 md:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="absolute bottom-4 left-4 glass px-3 py-1 rounded-full">
+                                    <span class="text-white text-sm font-medium" data-i18n="hero.video2.title">Gameplay Demo</span>
+                                </div>
                             </div>
                         </div>
+
                         <!-- Slide 3 -->
                         <div class="w-full flex-shrink-0 px-1">
-                            <div class="relative w-full pt-[56.25%]">
-                                <iframe class="absolute inset-0 w-full h-full rounded-xl"
-                                    src="https://www.youtube.com/embed/8iYzBlQzG4g" title="Winning Moments"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
-                                    loading="lazy"></iframe>
+                            <div class="relative w-full pt-[56.25%] bg-dark rounded-xl overflow-hidden cursor-pointer video-trigger group/video"
+                                 data-video-id="8iYzBlQzG4g"
+                                 data-title="Winning Moments"
+                                 role="button"
+                                 tabindex="0"
+                                 aria-label="Play Winning Moments video">
+                                <img src="https://img.youtube.com/vi/8iYzBlQzG4g/maxresdefault.jpg"
+                                     alt="Winning Moments video thumbnail"
+                                     class="absolute inset-0 w-full h-full object-cover"
+                                     loading="lazy">
+                                <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover/video:bg-black/40 transition-colors">
+                                    <div class="w-16 h-16 md:w-20 md:h-20 bg-cta rounded-full flex items-center justify-center shadow-lg transform group-hover/video:scale-110 transition-transform">
+                                        <svg class="w-8 h-8 md:w-10 md:h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M8 5v14l11-7z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="absolute bottom-4 left-4 glass px-3 py-1 rounded-full">
+                                    <span class="text-white text-sm font-medium" data-i18n="hero.video3.title">Winning Moments</span>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Navigation Arrows -->
+                    <!-- Navigation Arrows (always visible on mobile, hover on desktop) -->
                     <button id="prev-slide"
-                        class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-primary text-white rounded-full flex items-center justify-center backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0"
+                        class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-primary text-white rounded-full flex items-center justify-center backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary md:opacity-0 md:group-hover:opacity-100 md:translate-x-4 md:group-hover:translate-x-0"
                         aria-label="Previous slide">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
                     <button id="next-slide"
-                        class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-primary text-white rounded-full flex items-center justify-center backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0"
+                        class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-primary text-white rounded-full flex items-center justify-center backdrop-blur-sm transition-all focus:outline-none focus:ring-2 focus:ring-primary md:opacity-0 md:group-hover:opacity-100 md:-translate-x-4 md:group-hover:translate-x-0"
                         aria-label="Next slide">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -255,29 +424,24 @@
 
                     <!-- Indicators -->
                     <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-                        <button
-                            class="indicator w-2.5 h-2.5 rounded-full bg-white transition-all hover:bg-primary focus:outline-none"
-                            aria-label="Go to slide 1"></button>
-                        <button
-                            class="indicator w-2.5 h-2.5 rounded-full bg-white/40 transition-all hover:bg-primary focus:outline-none"
-                            aria-label="Go to slide 2"></button>
-                        <button
-                            class="indicator w-2.5 h-2.5 rounded-full bg-white/40 transition-all hover:bg-primary focus:outline-none"
-                            aria-label="Go to slide 3"></button>
+                        <button class="indicator w-2.5 h-2.5 rounded-full bg-white transition-all hover:bg-primary focus:outline-none" aria-label="Go to slide 1" aria-current="true"></button>
+                        <button class="indicator w-2.5 h-2.5 rounded-full bg-white/40 transition-all hover:bg-primary focus:outline-none" aria-label="Go to slide 2"></button>
+                        <button class="indicator w-2.5 h-2.5 rounded-full bg-white/40 transition-all hover:bg-primary focus:outline-none" aria-label="Go to slide 3"></button>
                     </div>
                 </div>
             </div>
 
             <!-- Primary CTA -->
             <div class="relative z-10">
-                <a href="https://t.me/OneJackpotOfficial" target="_blank" rel="noopener noreferrer"
+                <a id="hero-cta"
+                    href="https://t.me/OneDollarJackpotBot?startapp=1114D8AF" target="_blank" rel="noopener noreferrer"
                     class="group inline-flex items-center gap-3 bg-cta hover:bg-cta-hover text-white font-semibold text-lg px-8 py-4 rounded-full shadow-lg shadow-cta/30 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-cta/40">
                     <!-- Telegram Icon -->
                     <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                         <path
                             d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
                     </svg>
-                    <span>Play $1 Jackpot Now</span>
+                    <span data-i18n="hero.cta">Claim Your 30 Free Spins</span>
                     <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -296,15 +460,15 @@
         </section>
 
         <!-- Section 2: Zero-Friction Conversion -->
-        <section id="instant-play" class="relative py-20 md:py-28 px-4 md:px-6 lg:px-8">
+        <section id="instant-play" aria-labelledby="instant-play-title" class="relative py-20 md:py-28 px-4 md:px-6 lg:px-8">
             <div class="max-w-6xl mx-auto">
                 <!-- Section Header -->
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-4">
-                        No Install. No Sign-Up.
-                        <span class="block text-secondary">Just Instant Play.</span>
+                    <h2 id="instant-play-title" class="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-4">
+                        <span data-i18n="section2.title.1">No Install. No Sign-Up.</span>
+                        <span class="block text-secondary" data-i18n="section2.title.2">Just Instant Play.</span>
                     </h2>
-                    <p class="text-slate-400 text-lg max-w-xl mx-auto">
+                    <p class="text-slate-400 text-lg max-w-xl mx-auto" data-i18n="section2.subtitle">
                         From zero to winning in under 10 seconds. That's the $1 Jackpot promise.
                     </p>
                 </div>
@@ -328,8 +492,8 @@
                                     d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold font-display mb-2">Connect Wallet</h3>
-                        <p class="text-slate-400 text-sm">One tap to link your crypto wallet. No registration forms.</p>
+                        <h3 class="text-xl font-semibold font-display mb-2" data-i18n="section2.step1.title">Connect Wallet</h3>
+                        <p class="text-slate-400 text-sm" data-i18n="section2.step1.desc">One tap to link your crypto wallet. No registration forms.</p>
                     </div>
 
                     <!-- Connector Arrow (Desktop) -->
@@ -356,8 +520,8 @@
                                     d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold font-display mb-2">Tap $1</h3>
-                        <p class="text-slate-400 text-sm">One dollar. One spin. Maximum fun with minimum risk.</p>
+                        <h3 class="text-xl font-semibold font-display mb-2" data-i18n="section2.step2.title">Tap $1</h3>
+                        <p class="text-slate-400 text-sm" data-i18n="section2.step2.desc">One dollar. Ten spins. Maximum fun with minimum risk.</p>
                     </div>
 
                     <!-- Step 3: Result -->
@@ -375,16 +539,16 @@
                                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold font-display mb-2">Result in 3 Seconds</h3>
-                        <p class="text-slate-400 text-sm">Instant, transparent results powered by blockchain.</p>
+                        <h3 class="text-xl font-semibold font-display mb-2" data-i18n="section2.step3.title">Result in 3 Seconds</h3>
+                        <p class="text-slate-400 text-sm" data-i18n="section2.step3.desc">Instant, transparent results powered by blockchain.</p>
                     </div>
                 </div>
 
                 <!-- CTA -->
                 <div class="text-center">
-                    <a href="https://t.me/OneJackpotOfficial" target="_blank" rel="noopener noreferrer"
+                    <a href="https://t.me/OneDollarJackpotBot?startapp=1114D8AF" target="_blank" rel="noopener noreferrer"
                         class="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white font-semibold text-lg px-8 py-4 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                        <span>Try Your $1 Spin Now</span>
+                        <span data-i18n="section2.cta">Try Your First Free Spin</span>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -395,7 +559,7 @@
         </section>
 
         <!-- Section 3: Humor Feature -->
-        <section id="why-limit" class="relative py-20 md:py-28 px-4 md:px-6 lg:px-8 bg-dark-card">
+        <section id="why-limit" aria-labelledby="why-limit-title" class="relative py-20 md:py-28 px-4 md:px-6 lg:px-8 bg-dark-card">
             <!-- Decorative element -->
             <div
                 class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent">
@@ -403,13 +567,13 @@
 
             <div class="max-w-4xl mx-auto text-center">
                 <!-- Headline -->
-                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-6">
-                    The Real Reason We Limit You:
-                    <span class="block text-cta mt-2">We're Afraid of You Winning</span>
+                <h2 id="why-limit-title" class="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-6">
+                    <span data-i18n="section3.title.1">The Real Reason We Limit You:</span>
+                    <span class="block text-cta mt-2" data-i18n="section3.title.2">We're Afraid of You Winning</span>
                 </h2>
 
                 <!-- Body Copy -->
-                <p class="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-2xl mx-auto">
+                <p class="text-lg md:text-xl text-slate-300 mb-12 leading-relaxed max-w-2xl mx-auto" data-i18n="section3.subtitle">
                     With <span class="text-gold font-semibold">95% of every dollar</span> going back to the prize pool,
                     we had to protect ourselves somehow. So we capped it at
                     <span class="text-secondary font-semibold">$3 per day</span>. Call it self-preservation.
@@ -419,38 +583,76 @@
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
                     <!-- Stat 1: Prize Pool -->
                     <div class="glass rounded-2xl p-6">
-                        <div class="text-4xl md:text-5xl font-bold font-display text-gold mb-2">95%</div>
-                        <div class="text-slate-400 text-sm">Prize Pool Return</div>
+                        <div class="text-4xl md:text-5xl font-bold font-display text-gold mb-2"
+                             data-count="95"
+                             data-suffix="%"
+                             data-duration="1500">0%</div>
+                        <div class="text-slate-400 text-sm" data-i18n="section3.stat1.label">Prize Pool Return</div>
                     </div>
 
                     <!-- Stat 2: Daily Limit -->
                     <div class="glass rounded-2xl p-6">
-                        <div class="text-4xl md:text-5xl font-bold font-display text-secondary mb-2">$3</div>
-                        <div class="text-slate-400 text-sm">Daily Limit</div>
+                        <div class="text-4xl md:text-5xl font-bold font-display text-secondary mb-2"
+                             data-count="3"
+                             data-prefix="$"
+                             data-duration="1000">$0</div>
+                        <div class="text-slate-400 text-sm" data-i18n="section3.stat2.label">Daily Limit</div>
                     </div>
 
                     <!-- Stat 3: Spins -->
                     <div class="glass rounded-2xl p-6">
-                        <div class="text-4xl md:text-5xl font-bold font-display text-primary mb-2">3</div>
-                        <div class="text-slate-400 text-sm">Micro-doses of Goosebumps</div>
+                        <div class="text-4xl md:text-5xl font-bold font-display text-primary mb-2"
+                             data-count="3"
+                             data-duration="800">0</div>
+                        <div class="text-slate-400 text-sm" data-i18n="section3.stat3.label">Micro-doses of Goosebumps</div>
+                    </div>
+                </div>
+
+                <!-- Fun Comparison -->
+                <div class="glass rounded-xl p-6 mt-8 max-w-md mx-auto">
+                    <div class="flex items-center justify-center gap-4">
+                        <div class="text-center">
+                            <div class="text-3xl mb-1">☕</div>
+                            <div class="text-slate-400 text-sm" data-i18n="section3.comparison.coffee">$6 Coffee</div>
+                            <div class="text-slate-500 text-xs" data-i18n="section3.comparison.coffee.desc">Gone in 15 min</div>
+                        </div>
+                        <div class="text-slate-600 text-2xl">vs</div>
+                        <div class="text-center">
+                            <div class="text-3xl mb-1">🎰</div>
+                            <div class="text-gold text-sm font-semibold" data-i18n="section3.comparison.jackpot">$3 Jackpot</div>
+                            <div class="text-slate-500 text-xs" data-i18n="section3.comparison.jackpot.desc">30 shots at glory</div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Value Proposition -->
-                <div class="glass rounded-2xl p-8 md:p-10 mb-10">
-                    <h3 class="text-2xl md:text-3xl font-semibold font-display mb-4">
+                <div class="glass rounded-2xl p-8 md:p-10 mb-10 mt-10">
+                    <h3 class="text-2xl md:text-3xl font-semibold font-display mb-4" data-i18n="section3.value.title">
                         Play Big with Small Stakes
                     </h3>
-                    <p class="text-slate-300 text-lg max-w-xl mx-auto">
+                    <p class="text-slate-300 text-lg max-w-xl mx-auto" data-i18n="section3.value.desc">
                         Every spin is a chance. Every dollar stretches further.
                         No whale advantages. Just pure, fair, thrilling gameplay.
                     </p>
                 </div>
 
                 <!-- Tagline -->
-                <p class="text-2xl md:text-3xl font-display text-accent italic">
+                <p class="text-2xl md:text-3xl font-display text-accent italic" data-i18n="section3.tagline">
                     "Three micro-doses of goosebumps"
                 </p>
+
+                <!-- Section CTA -->
+                <div class="mt-10 text-center">
+                    <a href="https://t.me/OneDollarJackpotBot?startapp=1114D8AF"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center gap-2 bg-cta hover:bg-cta-hover text-white font-semibold px-6 py-3 rounded-full shadow-lg transition-all hover:scale-105">
+                        <span data-i18n="section3.cta">Get Your 30 Free Spins</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
 
             <!-- Decorative element -->
@@ -460,16 +662,28 @@
         </section>
 
         <!-- Section 4: Trust & Transparency -->
-        <section id="trust" class="relative py-20 md:py-28 px-4 md:px-6 lg:px-8">
+        <section id="trust" aria-labelledby="trust-title" class="relative py-20 md:py-28 px-4 md:px-6 lg:px-8">
             <div class="max-w-6xl mx-auto">
                 <!-- Section Header -->
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-4">
-                        Fairness on the <span class="text-primary">Blockchain</span>
+                    <h2 id="trust-title" class="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-4" data-i18n="section4.title">
+                        Every Spin is <span class="text-primary">Provably Fair</span>
                     </h2>
-                    <p class="text-slate-400 text-lg max-w-xl mx-auto">
-                        Every spin, every result, every payout — verifiable and immutable.
+                    <p class="text-slate-400 text-lg max-w-xl mx-auto mb-6" data-i18n="section4.subtitle">
+                        See the proof yourself — every spin, every result, every payout on the blockchain.
                     </p>
+
+                    <!-- Live Stats Badge -->
+                    <div class="flex justify-center gap-6">
+                        <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full">
+                            <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            <span class="text-slate-300 text-sm">
+                                <span data-count="127543" data-duration="2000">0</span>+ <span data-i18n="section4.transactions">verified transactions</span>
+                            </span>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Trust Cards Grid -->
@@ -485,8 +699,8 @@
                                     d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold font-display mb-3">On-chain Transparency</h3>
-                        <p class="text-slate-400">
+                        <h3 class="text-xl font-semibold font-display mb-3" data-i18n="section4.card1.title">On-chain Transparency</h3>
+                        <p class="text-slate-400" data-i18n="section4.card1.desc">
                             Every transaction is recorded on the blockchain. Audit anytime, trust always.
                         </p>
                     </div>
@@ -501,10 +715,14 @@
                                     d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold font-display mb-3">95% Payout Rate</h3>
-                        <p class="text-slate-400">
+                        <h3 class="text-xl font-semibold font-display mb-3" data-i18n="section4.card2.title">95% Payout Rate</h3>
+                        <p class="text-slate-400 mb-3" data-i18n="section4.card2.desc">
                             The highest return in the industry. Your dollar works harder here.
                         </p>
+                        <!-- Comparison Badge -->
+                        <div class="inline-flex items-center gap-2 bg-gold/10 text-gold text-xs px-3 py-1 rounded-full">
+                            <span data-i18n="section4.card2.badge">vs 85% industry average</span>
+                        </div>
                     </div>
 
                     <!-- Card 3: Smart Contracts -->
@@ -517,17 +735,30 @@
                                     d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-semibold font-display mb-3">Trustless Execution</h3>
-                        <p class="text-slate-400">
+                        <h3 class="text-xl font-semibold font-display mb-3" data-i18n="section4.card3.title">Trustless Execution</h3>
+                        <p class="text-slate-400" data-i18n="section4.card3.desc">
                             Smart contracts handle everything. No human interference, no manipulation.
                         </p>
                     </div>
+                </div>
+
+                <!-- Section CTA -->
+                <div class="mt-12 text-center">
+                    <a href="https://t.me/OneDollarJackpotBot?startapp=1114D8AF"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-white font-semibold px-6 py-3 rounded-full shadow-lg transition-all hover:scale-105">
+                        <span data-i18n="section4.cta">Experience Fair Play</span>
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- Section 5: Social Proof -->
-        <section id="social-proof" class="relative py-20 md:py-28 px-4 md:px-6 lg:px-8 bg-dark-card overflow-hidden">
+        <section id="social-proof" aria-labelledby="social-proof-title" class="relative py-20 md:py-28 px-4 md:px-6 lg:px-8 bg-dark-card overflow-hidden">
             <!-- Decorative element -->
             <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent">
             </div>
@@ -535,10 +766,10 @@
             <div class="max-w-6xl mx-auto">
                 <!-- Section Header -->
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-4">
+                    <h2 id="social-proof-title" class="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-4" data-i18n="section5.title">
                         Turn Spare Change Into <span class="text-gold">Excitement</span>
                     </h2>
-                    <p class="text-slate-400 text-lg max-w-xl mx-auto">
+                    <p class="text-slate-400 text-lg max-w-xl mx-auto" data-i18n="section5.subtitle">
                         Real players. Real wins. Real thrills — all from just $1.
                     </p>
                 </div>
@@ -553,7 +784,13 @@
                         class="absolute inset-y-0 right-0 w-8 md:w-32 bg-gradient-to-l from-dark-card to-transparent z-10">
                     </div>
 
-                    <script>
+                    <!-- Animated marquee container -->
+                    <div class="animate-marquee flex whitespace-nowrap">
+                        <!-- JavaScript will populate this -->
+                    </div>
+                </div>
+
+                <script>
                             (function () {
                                 // Dynamic Marquee Content Generator
                                 const container = document.querySelector('.animate-marquee');
@@ -579,7 +816,7 @@
                                 ];
 
                                 const createCard = (winner) => `
-                            <div class="glass rounded-xl px-5 py-3 flex items-center gap-3 border-l-4 ${winner.amount > 500 ? 'border-primary' : 'border-gold'} min-w-[200px]">
+                            <div class="glass rounded-xl px-5 py-3 flex items-center gap-3 border-l-4 ${winner.amount > 500 ? 'border-primary' : 'border-gold'} min-w-[200px] flex-shrink-0">
                                 <div class="w-10 h-10 ${winner.amount > 500 ? 'bg-primary/20' : 'bg-gold/20'} rounded-full flex items-center justify-center">
                                     <svg class="w-5 h-5 ${winner.amount > 500 ? 'text-primary' : 'text-gold'}" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                                 </div>
@@ -593,9 +830,9 @@
                                 // Generate html
                                 const cardsHtml = winners.map(createCard).join('');
 
-                                // We need two batches for the infinite loop effect
+                                // Create two identical sets for seamless loop
                                 container.innerHTML = `
-                            <div class="flex items-center gap-6">
+                            <div class="flex items-center gap-6 mr-6">
                                 ${cardsHtml}
                             </div>
                             <div class="flex items-center gap-6" aria-hidden="true">
@@ -608,7 +845,7 @@
 
                 <!-- Feature Screenshots Grid -->
                 <div class="mb-16">
-                    <h3 class="text-xl font-semibold font-display text-center mb-8 text-slate-300">
+                    <h3 class="text-xl font-semibold font-display text-center mb-8 text-slate-300" data-i18n="section5.screenshots.title">
                         See It In Action
                     </h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -619,7 +856,7 @@
                                 <img src="characters/rabbit-jackpot.png" alt="Big Jackpot Wins"
                                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             </div>
-                            <p class="text-slate-500 text-sm text-center mt-3 font-medium">Big Jackpot Wins</p>
+                            <p class="text-slate-500 text-sm text-center mt-3 font-medium" data-i18n="section5.screenshots.caption1">Big Jackpot Wins</p>
                         </div>
 
                         <!-- Screenshot Placeholder 2 -->
@@ -628,7 +865,7 @@
                                 <img src="characters/rabbit-777.png" alt="Lucky 777"
                                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             </div>
-                            <p class="text-slate-500 text-sm text-center mt-3 font-medium">Multiple Ways to Win</p>
+                            <p class="text-slate-500 text-sm text-center mt-3 font-medium" data-i18n="section5.screenshots.caption2">Multiple Ways to Win</p>
                         </div>
 
                         <!-- Screenshot Placeholder 3 -->
@@ -637,16 +874,16 @@
                                 <img src="characters/rabbit-chosen.png" alt="Chosen One"
                                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                             </div>
-                            <p class="text-slate-500 text-sm text-center mt-3 font-medium">Community & Rewards</p>
+                            <p class="text-slate-500 text-sm text-center mt-3 font-medium" data-i18n="section5.screenshots.caption3">Community & Rewards</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Secondary CTA -->
                 <div class="text-center">
-                    <a href="https://t.me/OneJackpotOfficial" target="_blank" rel="noopener noreferrer"
+                    <a href="https://t.me/OneDollarJackpotBot?startapp=1114D8AF" target="_blank" rel="noopener noreferrer"
                         class="inline-flex items-center gap-3 bg-gold hover:bg-amber-400 text-dark font-semibold text-lg px-8 py-4 rounded-full shadow-lg shadow-gold/30 transition-all duration-300 hover:scale-105">
-                        <span>Start with Your $1</span>
+                        <span data-i18n="section5.cta">Claim Your Free Spins</span>
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -705,11 +942,289 @@
             })();
         </script>
 
+        <!-- Sticky Mobile CTA -->
+        <div id="sticky-cta"
+             class="fixed bottom-0 left-0 right-0 z-50 p-4 bg-dark/95 backdrop-blur-lg border-t border-white/10 transform translate-y-full transition-transform duration-300 md:hidden"
+             role="complementary"
+             aria-label="Quick action bar">
+            <div class="flex items-center justify-between gap-4 max-w-lg mx-auto">
+                <!-- Live indicator -->
+                <div class="flex items-center gap-2 text-sm">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse" aria-hidden="true"></span>
+                    <span class="text-slate-300"><span id="sticky-players">247</span> playing</span>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="https://t.me/OneDollarJackpotBot?startapp=1114D8AF"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="flex-1 max-w-[200px] flex items-center justify-center gap-2 bg-cta hover:bg-cta-hover text-white font-semibold py-3 px-6 rounded-full shadow-lg transition-all"
+                   aria-label="Open game in Telegram">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                    <span>Play Free</span>
+                </a>
+            </div>
+        </div>
+
+        <script>
+        // Sticky CTA visibility logic
+        (function() {
+            const stickyCta = document.getElementById('sticky-cta');
+            const hero = document.getElementById('hero');
+            if (!stickyCta || !hero) return;
+
+            let isVisible = false;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // Show sticky when hero is NOT visible (scrolled past)
+                    const shouldShow = !entry.isIntersecting;
+
+                    if (shouldShow !== isVisible) {
+                        isVisible = shouldShow;
+                        stickyCta.classList.toggle('translate-y-full', !shouldShow);
+                        stickyCta.classList.toggle('translate-y-0', shouldShow);
+                    }
+                });
+            }, {
+                threshold: 0,
+                rootMargin: '-100px 0px 0px 0px' // Trigger when hero is 100px out of view
+            });
+
+            observer.observe(hero);
+        })();
+        </script>
+
+        <!-- Winner Toast Container -->
+        <div id="winner-toast-container"
+             class="fixed top-4 right-4 z-50 flex flex-col gap-2 pointer-events-none"
+             aria-live="polite"
+             aria-label="Recent winners">
+        </div>
+
+        <script>
+        // Winner toast notifications
+        (function() {
+            const container = document.getElementById('winner-toast-container');
+            if (!container) return;
+
+            // Check for reduced motion preference
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            const winners = [
+                { wallet: '0x7c...ED12', amount: 12 },
+                { wallet: '0x9a...F3B1', amount: 45 },
+                { wallet: '0x3d...A2C9', amount: 234 },
+                { wallet: '0x1f...E9D4', amount: 8 },
+                { wallet: '0x5b...C1A8', amount: 156 },
+                { wallet: '0xe4...B2D9', amount: 67 },
+                { wallet: '0x88...A1C4', amount: 890 },
+                { wallet: '0x22...E5F6', amount: 23 },
+            ];
+
+            function showToast() {
+                if (prefersReducedMotion) return; // Skip if reduced motion preferred
+
+                const winner = winners[Math.floor(Math.random() * winners.length)];
+                const toast = document.createElement('div');
+                toast.className = 'winner-notification glass px-4 py-3 rounded-xl flex items-center gap-3 max-w-[280px] border-l-4 border-gold';
+                toast.innerHTML = `
+                    <div class="w-8 h-8 bg-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-white text-sm font-semibold">Someone just won!</p>
+                        <p class="text-slate-400 text-xs">${winner.wallet} won $${winner.amount}</p>
+                    </div>
+                `;
+
+                container.appendChild(toast);
+
+                // Remove after animation completes (5s total)
+                setTimeout(() => {
+                    toast.remove();
+                }, 5000);
+            }
+
+            // Initial delay, then show every 8-15 seconds
+            setTimeout(() => {
+                showToast();
+                setInterval(showToast, 8000 + Math.random() * 7000);
+            }, 3000);
+        })();
+        </script>
+
+        <script>
+        // Simulated live player count
+        (function() {
+            const playerElements = [
+                document.getElementById('sticky-players')
+            ].filter(Boolean);
+
+            if (playerElements.length === 0) return;
+
+            let playerCount = 200 + Math.floor(Math.random() * 100);
+
+            function updateCount() {
+                // Random fluctuation: -3 to +5
+                playerCount = Math.max(150, Math.min(400, playerCount + Math.floor(Math.random() * 9) - 3));
+                playerElements.forEach(el => {
+                    el.textContent = playerCount;
+                });
+            }
+
+            // Update every 3-5 seconds
+            setInterval(updateCount, 3000 + Math.random() * 2000);
+        })();
+        </script>
+
+        <script>
+        // Animated counter on scroll
+        (function() {
+            const counters = document.querySelectorAll('[data-count]');
+            if (counters.length === 0) return;
+
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            function animateCounter(el) {
+                const target = parseFloat(el.dataset.count);
+                const prefix = el.dataset.prefix || '';
+                const suffix = el.dataset.suffix || '';
+                const duration = parseInt(el.dataset.duration) || 2000;
+                const decimals = parseInt(el.dataset.decimals) || 0;
+
+                if (prefersReducedMotion) {
+                    el.textContent = prefix + target.toFixed(decimals) + suffix;
+                    return;
+                }
+
+                const startTime = performance.now();
+                const startValue = 0;
+
+                function update(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    // Ease out quad
+                    const easeProgress = 1 - (1 - progress) * (1 - progress);
+                    const currentValue = startValue + (target - startValue) * easeProgress;
+
+                    el.textContent = prefix + currentValue.toFixed(decimals) + suffix;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    }
+                }
+
+                requestAnimationFrame(update);
+            }
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => observer.observe(counter));
+        })();
+        </script>
+
+        <!-- Video Modal -->
+        <div id="video-modal"
+             class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="video-modal-title"
+             aria-hidden="true">
+            <div class="relative w-full max-w-4xl">
+                <!-- Close Button -->
+                <button id="video-modal-close"
+                        class="absolute -top-12 right-0 w-10 h-10 flex items-center justify-center text-white hover:text-cta transition-colors rounded-full"
+                        aria-label="Close video">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                    </svg>
+                </button>
+
+                <!-- Video Container -->
+                <div class="relative w-full pt-[56.25%] bg-dark rounded-xl overflow-hidden">
+                    <iframe id="video-iframe"
+                            class="absolute inset-0 w-full h-full"
+                            src=""
+                            title=""
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <script>
+        // Video modal logic
+        (function() {
+            const modal = document.getElementById('video-modal');
+            const iframe = document.getElementById('video-iframe');
+            const closeBtn = document.getElementById('video-modal-close');
+            const triggers = document.querySelectorAll('.video-trigger');
+
+            if (!modal || !iframe) return;
+
+            function openModal(videoId, title) {
+                iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+                iframe.title = title;
+                modal.classList.remove('opacity-0', 'pointer-events-none');
+                modal.classList.add('opacity-100', 'pointer-events-auto');
+                modal.setAttribute('aria-hidden', 'false');
+                closeBtn.focus();
+            }
+
+            function closeModal() {
+                iframe.src = '';
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modal.classList.remove('opacity-100', 'pointer-events-auto');
+                modal.setAttribute('aria-hidden', 'true');
+            }
+
+            triggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const videoId = trigger.dataset.videoId;
+                    const title = trigger.dataset.title;
+                    openModal(videoId, title);
+                });
+
+                trigger.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const videoId = trigger.dataset.videoId;
+                        const title = trigger.dataset.title;
+                        openModal(videoId, title);
+                    }
+                });
+            });
+
+            closeBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('opacity-0')) {
+                    closeModal();
+                }
+            });
+        })();
+        </script>
+
     </main>
     <!-- End Main Content -->
 
     <!-- Footer -->
-    <footer class="relative py-12 md:py-16 px-4 md:px-6 lg:px-8 bg-[#070A1A]">
+    <footer id="footer" role="contentinfo" class="relative py-12 md:py-16 px-4 md:px-6 lg:px-8 bg-[#070A1A]">
         <!-- Top border decoration -->
         <div
             class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-700/50 to-transparent">
@@ -717,63 +1232,71 @@
 
         <div class="max-w-6xl mx-auto">
             <!-- Footer Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-10">
                 <!-- Column 1: Logo & Tagline -->
                 <div class="text-center md:text-left">
                     <img src="1$ Jackpot logo.png" alt="$1 Jackpot Logo"
                         class="w-16 h-16 mx-auto md:mx-0 mb-4 object-contain" width="64" height="64" loading="lazy">
-                    <p class="text-slate-400 text-sm">
+                    <p class="text-slate-400 text-sm" data-i18n="footer.tagline">
                         The Web3 Game Engineered for Fun.
                         <br>Play Big with Small Stakes.
                     </p>
                 </div>
 
-                <!-- Column 2: Legal Links -->
-                <div class="text-center">
-                    <h4 class="text-white font-semibold font-display mb-4">Legal</h4>
-                    <nav aria-label="Legal links">
-                        <ul class="space-y-2">
-                            <li>
-                                <a href="#terms"
-                                    class="text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark rounded">
-                                    Terms of Service
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#privacy"
-                                    class="text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark rounded">
-                                    Privacy Policy
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#responsible"
-                                    class="text-slate-400 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark rounded">
-                                    Responsible Gaming
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-
-                <!-- Column 3: Social & CTA -->
+                <!-- Column 2: Social & CTA -->
                 <div class="text-center md:text-right">
-                    <h4 class="text-white font-semibold font-display mb-4">Connect</h4>
-                    <div class="flex items-center justify-center md:justify-end gap-4 mb-6">
-                        <!-- Telegram -->
+                    <h4 class="text-white font-semibold font-display mb-4" data-i18n="footer.connect">Connect</h4>
+                    <div class="flex items-center justify-center md:justify-end gap-3 mb-6 flex-wrap">
+                        <!-- Telegram Channel -->
                         <a href="https://t.me/OneJackpotOfficial" target="_blank" rel="noopener noreferrer"
-                            class="w-10 h-10 bg-slate-800 hover:bg-primary rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark"
-                            aria-label="Join us on Telegram">
+                            class="w-10 h-10 bg-slate-800 hover:bg-[#0088cc] rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark"
+                            aria-label="Join our Telegram Channel">
                             <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path
-                                    d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z" />
+                                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                            </svg>
+                        </a>
+
+                        <!-- YouTube -->
+                        <a href="https://www.youtube.com/@1DollarJackpotOfficial" target="_blank" rel="noopener noreferrer"
+                            class="w-10 h-10 bg-slate-800 hover:bg-[#FF0000] rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark"
+                            aria-label="Subscribe on YouTube">
+                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+
+                        <!-- Facebook -->
+                        <a href="https://www.facebook.com/OneDollarJackpot/" target="_blank" rel="noopener noreferrer"
+                            class="w-10 h-10 bg-slate-800 hover:bg-[#1877F2] rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark"
+                            aria-label="Follow us on Facebook">
+                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+
+                        <!-- Twitter/X -->
+                        <a href="https://x.com/1DollarJackpot" target="_blank" rel="noopener noreferrer"
+                            class="w-10 h-10 bg-slate-800 hover:bg-black rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark"
+                            aria-label="Follow us on X (Twitter)">
+                            <svg class="w-4 h-4 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+
+                        <!-- TikTok -->
+                        <a href="https://www.tiktok.com/@1dollarjackpotofficial" target="_blank" rel="noopener noreferrer"
+                            class="w-10 h-10 bg-slate-800 hover:bg-[#000000] rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-dark"
+                            aria-label="Follow us on TikTok">
+                            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
                             </svg>
                         </a>
                     </div>
 
                     <!-- Mini CTA -->
-                    <a href="https://t.me/OneJackpotOfficial" target="_blank" rel="noopener noreferrer"
+                    <a href="https://t.me/OneDollarJackpotBot?startapp=1114D8AF" target="_blank" rel="noopener noreferrer"
                         class="inline-flex items-center gap-2 text-cta hover:text-white font-semibold transition-colors focus:outline-none focus:underline">
-                        <span>Play Now</span>
+                        <span data-i18n="footer.play">Play Now</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -791,19 +1314,136 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                         </svg>
-                        18+ Only (19+ where applicable)
+                        <span data-i18n="footer.age">18+ Only (19+ where applicable)</span>
                     </p>
                 </div>
             </div>
 
             <!-- Copyright -->
             <div class="text-center">
-                <p class="text-slate-600 text-sm">
-                    &copy; 2024 $1 Jackpot. All rights reserved.
+                <p class="text-slate-600 text-sm" data-i18n="footer.copyright">
+                    &copy; 2025 $1 Jackpot. All rights reserved.
                 </p>
             </div>
         </div>
     </footer>
+
+    <!-- Exit Intent Modal -->
+    <div id="exit-modal"
+         class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="exit-modal-title"
+         aria-hidden="true">
+        <div class="glass rounded-3xl p-8 max-w-md w-full relative transform scale-95 transition-transform duration-300"
+             id="exit-modal-content">
+            <!-- Close Button -->
+            <button id="exit-modal-close"
+                    class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-slate-400 hover:text-white transition-colors rounded-full hover:bg-white/10"
+                    aria-label="Close dialog">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+
+            <!-- Content -->
+            <div class="text-center">
+                <!-- Icon -->
+                <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-gold/30 to-gold/10 rounded-full flex items-center justify-center">
+                    <svg class="w-10 h-10 text-gold" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                </div>
+
+                <h3 id="exit-modal-title" class="text-2xl md:text-3xl font-bold font-display mb-3" data-i18n="exit.title">
+                    Wait! Your First Spin is Free
+                </h3>
+                <p class="text-slate-300 mb-6" data-i18n="exit.desc">
+                    Try $1 Jackpot with your 30 free spins. No commitment required.
+                </p>
+
+                <!-- CTA -->
+                <a href="https://t.me/OneDollarJackpotBot?startapp=1114D8AF"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="inline-flex items-center justify-center gap-2 w-full bg-gold hover:bg-amber-400 text-dark font-semibold text-lg px-6 py-4 rounded-full shadow-lg transition-all hover:scale-105">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                    </svg>
+                    <span data-i18n="exit.cta">Claim Free Spin</span>
+                </a>
+
+                <!-- Skip Link -->
+                <button id="exit-modal-skip" class="mt-4 text-slate-500 hover:text-slate-300 text-sm transition-colors" data-i18n="exit.skip">
+                    No thanks, I'll pass on free stuff
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Exit intent detection
+    (function() {
+        const modal = document.getElementById('exit-modal');
+        const modalContent = document.getElementById('exit-modal-content');
+        const closeBtn = document.getElementById('exit-modal-close');
+        const skipBtn = document.getElementById('exit-modal-skip');
+
+        if (!modal) return;
+
+        let hasShown = false;
+        const STORAGE_KEY = 'exit_modal_shown';
+
+        // Check if already shown this session
+        if (sessionStorage.getItem(STORAGE_KEY)) {
+            hasShown = true;
+        }
+
+        function showModal() {
+            if (hasShown) return;
+            hasShown = true;
+            sessionStorage.setItem(STORAGE_KEY, 'true');
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.classList.add('opacity-100', 'pointer-events-auto');
+            modal.setAttribute('aria-hidden', 'false');
+            modalContent.classList.remove('scale-95');
+            modalContent.classList.add('scale-100');
+
+            // Trap focus
+            closeBtn.focus();
+        }
+
+        function hideModal() {
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.classList.remove('opacity-100', 'pointer-events-auto');
+            modal.setAttribute('aria-hidden', 'true');
+            modalContent.classList.add('scale-95');
+            modalContent.classList.remove('scale-100');
+        }
+
+        // Exit intent detection (desktop only)
+        document.addEventListener('mouseout', (e) => {
+            if (e.clientY <= 0 && !hasShown) {
+                showModal();
+            }
+        });
+
+        // Close handlers
+        closeBtn.addEventListener('click', hideModal);
+        skipBtn.addEventListener('click', hideModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) hideModal();
+        });
+
+        // ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !modal.classList.contains('opacity-0')) {
+                hideModal();
+            }
+        });
+    })();
+    </script>
 
     <!--
     PERFORMANCE OPTIMIZATION NOTES:
@@ -827,6 +1467,222 @@
        - apple-touch-icon.png
        - manifest.json for PWA (optional)
   -->
+
+  <script>
+  // Fix viewport height on mobile (iOS Safari 100vh issue)
+  (function() {
+      function setVH() {
+          const vh = window.innerHeight * 0.01;
+          document.documentElement.style.setProperty('--vh', `${vh}px`);
+      }
+
+      setVH();
+      window.addEventListener('resize', setVH);
+      window.addEventListener('orientationchange', setVH);
+  })();
+  </script>
+
+  <script>
+  // Multi-language support (EN / KR)
+  (function() {
+      const translations = {
+          en: {
+              // Hero Section
+              'hero.bonus': 'NEW PLAYER BONUS:',
+              'hero.bonus.value': '30 FREE SPINS + $1',
+              'hero.headline': 'A Single Dollar Spin Can Change Everything',
+              'hero.subheadline': 'Play Big with Small Stakes',
+              'hero.cta': 'Claim Your 30 Free Spins',
+              'hero.video1.title': 'How It Works',
+              'hero.video2.title': 'Gameplay Demo',
+              'hero.video3.title': 'Winning Moments',
+
+              // Section 2
+              'section2.title.1': 'No Install. No Sign-Up.',
+              'section2.title.2': 'Just Instant Play.',
+              'section2.subtitle': 'From zero to winning in under 10 seconds. That\'s the $1 Jackpot promise.',
+              'section2.step1.title': 'Connect Wallet',
+              'section2.step1.desc': 'One tap to link your crypto wallet. No registration forms.',
+              'section2.step2.title': 'Tap $1',
+              'section2.step2.desc': 'One dollar. Ten spins. Maximum fun with minimum risk.',
+              'section2.step3.title': 'Result in 3 Seconds',
+              'section2.step3.desc': 'Instant, transparent results powered by blockchain.',
+              'section2.cta': 'Try Your First Free Spin',
+
+              // Section 3
+              'section3.title.1': 'The Real Reason We Limit You:',
+              'section3.title.2': 'We\'re Afraid of You Winning',
+              'section3.subtitle': 'With <span class="text-gold font-semibold">95% of every dollar</span> going back to the prize pool, we had to protect ourselves somehow. So we capped it at <span class="text-secondary font-semibold">$3 per day</span>. Call it self-preservation.',
+              'section3.stat1.label': 'Prize Pool Return',
+              'section3.stat2.label': 'Daily Limit',
+              'section3.stat3.label': 'Micro-doses of Goosebumps',
+              'section3.comparison.coffee': '$6 Coffee',
+              'section3.comparison.coffee.desc': 'Gone in 15 min',
+              'section3.comparison.jackpot': '$3 Jackpot',
+              'section3.comparison.jackpot.desc': '30 shots at glory',
+              'section3.value.title': 'Play Big with Small Stakes',
+              'section3.value.desc': 'Every spin is a chance. Every dollar stretches further. No whale advantages. Just pure, fair, thrilling gameplay.',
+              'section3.tagline': '"Three micro-doses of goosebumps"',
+              'section3.cta': 'Get Your 30 Free Spins',
+
+              // Section 4
+              'section4.title': 'Every Spin is <span class="text-primary">Provably Fair</span>',
+              'section4.subtitle': 'See the proof yourself — every spin, every result, every payout on the blockchain.',
+              'section4.transactions': 'verified transactions',
+              'section4.card1.title': 'On-chain Transparency',
+              'section4.card1.desc': 'Every transaction is recorded on the blockchain. Audit anytime, trust always.',
+              'section4.card2.title': '95% Payout Rate',
+              'section4.card2.desc': 'The highest return in the industry. Your dollar works harder here.',
+              'section4.card2.badge': 'vs 85% industry average',
+              'section4.card3.title': 'Trustless Execution',
+              'section4.card3.desc': 'Smart contracts handle everything. No human interference, no manipulation.',
+              'section4.cta': 'Experience Fair Play',
+
+              // Section 5
+              'section5.title': 'Turn Spare Change Into <span class="text-gold">Excitement</span>',
+              'section5.subtitle': 'Real players. Real wins. Real thrills — all from just $1.',
+              'section5.cta': 'Claim Your Free Spins',
+              'section5.screenshots.title': 'See It In Action',
+              'section5.screenshots.caption1': 'Big Jackpot Wins',
+              'section5.screenshots.caption2': 'Multiple Ways to Win',
+              'section5.screenshots.caption3': 'Community & Rewards',
+
+              // Sticky CTA
+              'sticky.cta': 'Claim 30 Free Spins',
+
+              // Exit Modal
+              'exit.title': 'Wait! Your First Spin is Free',
+              'exit.desc': 'Try $1 Jackpot with your 30 free spins. No commitment required.',
+              'exit.cta': 'Claim Free Spin',
+              'exit.skip': 'No thanks, I\'ll pass on free stuff',
+
+              // Footer
+              'footer.tagline': 'The Web3 Game Engineered for Fun.<br>Play Big with Small Stakes.',
+              'footer.connect': 'Connect',
+              'footer.play': 'Play Now',
+              'footer.age': '18+ Only (19+ where applicable)',
+              'footer.copyright': '© 2025 $1 Jackpot. All rights reserved.'
+          },
+          kr: {
+              // Hero Section
+              'hero.bonus': '신규 플레이어 보너스:',
+              'hero.bonus.value': '무료 스핀 30회 + $1',
+              'hero.headline': '단 1달러로 인생이 바뀔 수 있습니다',
+              'hero.subheadline': '작은 판돈으로 큰 승리를',
+              'hero.cta': '무료 스핀 30회 받기',
+              'hero.video1.title': '작동 방식',
+              'hero.video2.title': '게임 플레이 데모',
+              'hero.video3.title': '당첨 순간',
+
+              // Section 2
+              'section2.title.1': '설치 없음. 가입 없음.',
+              'section2.title.2': '바로 플레이.',
+              'section2.subtitle': '0에서 당첨까지 단 10초. 그것이 $1 잭팟의 약속입니다.',
+              'section2.step1.title': '지갑 연결',
+              'section2.step1.desc': '한 번의 탭으로 암호화폐 지갑을 연결하세요. 등록 양식 없음.',
+              'section2.step2.title': '$1 탭',
+              'section2.step2.desc': '1달러로 10번의 스핀. 최소 위험으로 최대의 재미.',
+              'section2.step3.title': '3초 만에 결과',
+              'section2.step3.desc': '블록체인으로 구동되는 즉각적이고 투명한 결과.',
+              'section2.cta': '첫 무료 스핀 시도하기',
+
+              // Section 3
+              'section3.title.1': '우리가 제한하는 진짜 이유:',
+              'section3.title.2': '여러분이 당첨되는 것이 두렵기 때문',
+              'section3.subtitle': '<span class="text-gold font-semibold">모든 달러의 95%</span>가 상금 풀로 돌아가기 때문에, 우리는 어쩔 수 없이 스스로를 보호해야 했습니다. 그래서 하루 <span class="text-secondary font-semibold">$3</span>로 제한했죠. 자기 보존이라고 부르세요.',
+              'section3.stat1.label': '상금 풀 환원율',
+              'section3.stat2.label': '일일 한도',
+              'section3.stat3.label': '전율의 소량 복용',
+              'section3.comparison.coffee': '$6 커피',
+              'section3.comparison.coffee.desc': '15분 만에 사라짐',
+              'section3.comparison.jackpot': '$3 잭팟',
+              'section3.comparison.jackpot.desc': '영광의 30번 도전',
+              'section3.value.title': '작은 판돈으로 큰 승리를',
+              'section3.value.desc': '모든 스핀이 기회입니다. 모든 달러가 더 멀리 갑니다. 고래의 이점 없음. 순수하고 공정하며 스릴 넘치는 게임플레이.',
+              'section3.tagline': '"전율의 세 가지 소량 복용"',
+              'section3.cta': '무료 스핀 30회 받기',
+
+              // Section 4
+              'section4.title': '모든 스핀은 <span class="text-primary">증명 가능하게 공정</span>합니다',
+              'section4.subtitle': '직접 증명을 확인하세요 — 모든 스핀, 모든 결과, 모든 지급이 블록체인에 기록됩니다.',
+              'section4.transactions': '개의 검증된 거래',
+              'section4.card1.title': '온체인 투명성',
+              'section4.card1.desc': '모든 거래가 블록체인에 기록됩니다. 언제든 감사 가능, 항상 신뢰.',
+              'section4.card2.title': '95% 지급률',
+              'section4.card2.desc': '업계 최고 수익률. 당신의 달러가 여기서 더 열심히 일합니다.',
+              'section4.card2.badge': '업계 평균 85% 대비',
+              'section4.card3.title': '신뢰 불필요 실행',
+              'section4.card3.desc': '스마트 컨트랙트가 모든 것을 처리합니다. 사람의 개입 없음, 조작 없음.',
+              'section4.cta': '공정한 플레이 경험하기',
+
+              // Section 5
+              'section5.title': '잔돈을 <span class="text-gold">흥분</span>으로 바꾸세요',
+              'section5.subtitle': '실제 플레이어. 실제 승리. 실제 스릴 — 모두 단 $1로.',
+              'section5.cta': '무료 스핀 받기',
+              'section5.screenshots.title': '실제 플레이 보기',
+              'section5.screenshots.caption1': '빅 잭팟 당첨',
+              'section5.screenshots.caption2': '다양한 승리 방법',
+              'section5.screenshots.caption3': '커뮤니티 & 보상',
+
+              // Sticky CTA
+              'sticky.cta': '무료 스핀 30회 받기',
+
+              // Exit Modal
+              'exit.title': '잠깐! 첫 스핀은 무료입니다',
+              'exit.desc': '30개의 무료 스핀으로 $1 잭팟을 시도해보세요. 부담 없이 즐기세요.',
+              'exit.cta': '무료 스핀 받기',
+              'exit.skip': '괜찮습니다, 무료 혜택을 포기할게요',
+
+              // Footer
+              'footer.tagline': '재미를 위해 설계된 Web3 게임.<br>작은 판돈으로 큰 승리를.',
+              'footer.connect': '연결',
+              'footer.play': '지금 플레이',
+              'footer.age': '만 18세 이상 (해당 지역 만 19세)',
+              'footer.copyright': '© 2025 $1 잭팟. All rights reserved.'
+          }
+      };
+
+      let currentLang = localStorage.getItem('language') || 'en';
+
+      function translatePage(lang) {
+          currentLang = lang;
+          localStorage.setItem('language', lang);
+          document.documentElement.lang = lang === 'kr' ? 'ko' : 'en';
+
+          // Update all elements with data-i18n attribute
+          document.querySelectorAll('[data-i18n]').forEach(el => {
+              const key = el.getAttribute('data-i18n');
+              if (translations[lang] && translations[lang][key]) {
+                  const translation = translations[lang][key];
+                  // Check if the TRANSLATION contains HTML, not the current element
+                  if (translation.includes('<')) {
+                      el.innerHTML = translation;
+                  } else {
+                      el.textContent = translation;
+                  }
+              }
+          });
+
+          // Update language label
+          const langLabel = document.getElementById('lang-label');
+          if (langLabel) {
+              langLabel.textContent = lang === 'en' ? 'EN' : 'KR';
+          }
+      }
+
+      // Language switcher button
+      const langSwitcher = document.getElementById('lang-switcher');
+      if (langSwitcher) {
+          langSwitcher.addEventListener('click', () => {
+              const newLang = currentLang === 'en' ? 'kr' : 'en';
+              translatePage(newLang);
+          });
+      }
+
+      // Initialize with saved or default language
+      translatePage(currentLang);
+  })();
+  </script>
 </body>
 
 </html>
